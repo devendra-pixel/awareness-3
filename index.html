@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cyber Safety Awareness</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            color: #2980b9;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .fact-box {
+            background-color: #e8f4fc;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            display: none;
+        }
+        input {
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cyber Safety Awareness</h1>
+        <p>Stay safe online by being aware of potential risks. Learn important facts and tips to protect yourself.</p>
+        
+        <button onclick="showRandomFact()">Show a Cyber Safety Fact</button>
+        <div class="fact-box" id="fact-box"></div>
+
+        <h2>Check Your Cyber Safety Knowledge</h2>
+        <p>What should you never share online?</p>
+        <input type="text" id="user-input" placeholder="Enter your answer...">
+        <button onclick="checkAnswer()">Submit Answer</button>
+        <div class="fact-box" id="answer-box"></div>
+    </div>
+
+    <script>
+        const facts = [
+            "Use strong passwords that include letters, numbers, and symbols.",
+            "Never share your personal information online with strangers.",
+            "Always log out of public computers after use.",
+            "Enable two-factor authentication for extra security.",
+            "Be cautious of suspicious links and emails."
+        ];
+
+        function showRandomFact() {
+            const factBox = document.getElementById('fact-box');
+            const randomFact = facts[Math.floor(Math.random() * facts.length)];
+            factBox.innerHTML = `<strong>Did you know?</strong> ${randomFact}`;
+            factBox.style.display = 'block';
+        }
+
+        function checkAnswer() {
+            const userInput = document.getElementById('user-input').value.toLowerCase().trim();
+            const answerBox = document.getElementById('answer-box');
+            answerBox.style.display = 'block';
+
+            if (userInput.includes("password") || userInput.includes("personal information") || userInput.includes("bank details")) {
+                answerBox.innerHTML = "Correct! You should never share personal information like passwords, bank details, or home addresses online.";
+            } else {
+                answerBox.innerHTML = "Not quite right. Remember, avoid sharing personal details such as passwords, bank information, or home addresses online.";
+            }
+        }
+    </script>
+</body>
+</html>
